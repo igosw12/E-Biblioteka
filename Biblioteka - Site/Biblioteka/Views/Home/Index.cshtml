@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "E-Biblioteka";
+    string[] TableHeaders = new string[] {"ID" , "Nazwa Książki", "Autor", "Wydawnictwo", "Data wydania"};
+    var counter = 1;
+}
+
+
+<body>
+
+
+    <div id="Spis książek">
+        <center><strong><font size="+5"><font color="black">Spis Książek</font></font></strong></center>
+    </div>
+
+    <div class="table">
+        <table class="table table-bordered table-hover" , style="background-color:#FFFFE0" ;>
+            <thead>
+                <tr>
+                    @{
+                        foreach (var head in TableHeaders)
+                        {
+                            <th>
+                                @head
+                            </th>
+                        }
+                    }
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var Data in Model)
+                        {
+                                <tr>
+                                    <td>@Data.ID</td>
+                                    <td>@Data.NazwaKsiążki</td>
+                                    <td>@Data.Autor</td>
+                                    <td>@Data.Wydawnictwo</td>
+                                    <td>@Data.DataWydania</td>
+                                </tr>
+
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div id="down">
+        <font color="white">Wszelkie prawa zastrzeżone</font>
+    </div>
+
+</body>
